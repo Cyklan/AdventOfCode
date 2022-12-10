@@ -1,6 +1,6 @@
 use std::fs;
 
-fn main() {
+pub fn run() {
     let input = fs::read_to_string("./input.txt").unwrap();
     let lines: Vec<&str> = input.split_whitespace().collect();
     let groups: Vec<&[&str]> = lines.chunks(3).collect();
@@ -28,7 +28,7 @@ fn main() {
             }
         }
     }
-    println!("\nTotal score: {collective_score}");
+    println!("{collective_score}");
 }
 
 fn convert_char_to_priority(item: char) -> i32 {

@@ -1,6 +1,6 @@
 use std::fs;
 
-fn main() {
+pub fn run() {
     let file_contents = fs::read_to_string("input.txt").unwrap();
     let mut calories: Vec<i32> = vec![];
     let split: Vec<&str> = file_contents.split("\n\n").collect();
@@ -16,8 +16,5 @@ fn main() {
 
     calories.sort_unstable();
 
-    let (_, topThree) = calories.split_at(calories.len() - 3);
-    let sum: i32 = topThree.iter().sum();
-
-    println!("{sum}");
+    println!("{}", calories.last().unwrap());
 }

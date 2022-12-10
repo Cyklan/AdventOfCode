@@ -7,8 +7,8 @@ enum Winner {
     Me = 6,
 }
 
-fn main() {
-    let input = fs::read_to_string("./input.this.txt").unwrap();
+pub fn run() {
+    let input = fs::read_to_string("./input.txt").unwrap();
     let lines: Vec<&str> = input.split('\n').collect();
     let mut score = 0;
     for line in lines {
@@ -20,7 +20,7 @@ fn main() {
         score += outcome as i32 + correct_outcome;
     }
 
-    print!("{score}");
+    println!("{score}");
 }
 
 fn get_assigned_value(r#move: &str) -> i32 {
